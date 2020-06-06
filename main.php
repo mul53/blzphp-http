@@ -48,6 +48,10 @@ Amp\Loop::run(function () {
         $methodName = $params['method'];
         $args = $params['args'];
 
+        if (!isset($methodName) || !isset($args)) {
+            return new Response(Status::BAD_REQUEST, ['content-type' => 'text/plain'], 'ArgumentError: Please provide method name and args');
+        }
+
         try {
             $result = $client->{$methodName}(...$args);
             return new Response(Status::OK, ['content-type' => 'text/plain'], json_encode($result));
