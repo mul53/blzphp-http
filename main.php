@@ -16,16 +16,6 @@ use Monolog\Logger;
 use Psr\Log\NullLogger;
 use Bluzelle\Client;
 
-// Run this script, then visit http://localhost:1337/ in your browser.
-
-$client = new Client(
-    'bluzelle1upsfjftremwgxz3gfy0wf3xgvwpymqx754ssu9',
-    'around buzz diagram captain obtain detail salon mango muffin brother morning jeans display attend knife carry green dwarf vendor hungry fan route pumpkin car',
-    'http://testnet.public.bluzelle.com:1317',
-    'bluzelle',
-    '20fc19d4-7c9d-4b5c-9578-8cedd756e0ea'
-);
-
 Amp\Loop::run(function () {
     $servers = [
         Socket\listen("0.0.0.0:1337"),
@@ -40,7 +30,13 @@ Amp\Loop::run(function () {
     $router = new Router;
 
     $router->addRoute('POST', '/', new CallableRequestHandler(function (Request $request) {
-        global $client;
+        $client = new Client(
+            'bluzelle1upsfjftremwgxz3gfy0wf3xgvwpymqx754ssu9',
+            'around buzz diagram captain obtain detail salon mango muffin brother morning jeans display attend knife carry green dwarf vendor hungry fan route pumpkin car',
+            'http://testnet.public.bluzelle.com:1317',
+            'bluzelle',
+            '20fc19d4-7c9d-4b5c-9578-8cedd756e0ea'
+        );
 
         $body = yield $request->getBody()->buffer();
         $params = json_decode($body, true);
