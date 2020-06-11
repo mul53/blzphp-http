@@ -16,13 +16,12 @@ use Monolog\Logger;
 use Psr\Log\NullLogger;
 use Bluzelle\Client;
 
-$dotnev = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotnev->load();
-
 Amp\Loop::run(function () {
+    $port = getenv('PORT');
+
     $servers = [
-        Socket\listen("0.0.0.0:1337"),
-        Socket\listen("[::]:1337"),
+        Socket\listen("0.0.0.0:" . $port),
+        Socket\listen("[::]:" . $port),
     ];
 
     $logHandler = new StreamHandler(new ResourceOutputStream(\STDOUT));
@@ -34,11 +33,11 @@ Amp\Loop::run(function () {
 
     $router->addRoute('POST', '/', new CallableRequestHandler(function (Request $request) {
         $client = new Client(
-            $_ENV['ADDRESS'],
-            $_ENV['MNEMONIC'],
-            $_ENV['ENDPOINT'],
+            getenv('ADDRESS'),
+            getenv('MNEMONIC'),
+            getenv('ENDPOINT'),
             'bluzelle',
-            $_ENV['UUID']
+            getenv('UUID')
         );
 
         $body = yield $request->getBody()->buffer();
