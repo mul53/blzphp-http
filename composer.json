@@ -7,7 +7,7 @@
         }
     ],
     "require": {
-        "mul53/blzphp": "^0.0.5",
+        "mul53/blzphp": "^0.0.6",
         "amphp/http-server": "^2.0",
         "amphp/http-server-router": "^1.0",
         "monolog/monolog": "^2.1",

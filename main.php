@@ -54,7 +54,8 @@ Amp\Loop::run(function () {
             $result = $client->{$methodName}(...$args);
             return new Response(Status::OK, ['content-type' => 'text/plain'], json_encode($result));
         } catch (Exception $e) {
-            return new Response(Status::BAD_REQUEST, ['content-type' => 'text/plain'], $e->getMessage());
+            echo "Exception";
+            // return new Response(Status::BAD_REQUEST, ['content-type' => 'text/plain'], $e->getMessage());
         }
 
     }));
