@@ -44,7 +44,7 @@ if (!isset($methodName) || !isset($args)) {
 try {
     header("HTTP/1.1 200 OK");
     $result = $client->{$methodName}(...$args);
-    echo json_encode(['data' => $result]);
+    echo json_encode($result);
 } catch (Exception $e) {
     header("HTTP/1.1 400 Bad Request");
     echo json_encode(['message' => $e->getMessage()]); 
