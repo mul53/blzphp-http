@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 require __DIR__ . "/vendor/autoload.php";
 
 use Bluzelle\Client;
@@ -47,6 +49,9 @@ try {
     echo json_encode($result);
 } catch (Exception $e) {
     header("HTTP/1.1 400 Bad Request");
-    echo json_encode($e->getMessage()); 
+    echo json_encode($e->getMessage());
+} catch (TypeError $e) {
+    header("HTTP/1.1 400 Bad Request");
+    echo json_encode('ArgumentError: Please provide the right argument type');
 }
 
