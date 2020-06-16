@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fedcdbae3c826fedd4443bbe876da48c",
+    "content-hash": "5350a16e10c574cbaa98795de4952799",
     "packages": [
         {
             "name": "amphp/amp",
@@ -1886,16 +1886,16 @@
         },
         {
             "name": "mul53/blzphp",
-            "version": "v0.0.9",
+            "version": "v0.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mul53/blzphp.git",
-                "reference": "1dde43f29a861f4543297903e77b573693e9e6ee"
+                "reference": "b124d566df11adf9ae8884c88aeb0fd986f6a5bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mul53/blzphp/zipball/1dde43f29a861f4543297903e77b573693e9e6ee",
-                "reference": "1dde43f29a861f4543297903e77b573693e9e6ee",
+                "url": "https://api.github.com/repos/mul53/blzphp/zipball/b124d566df11adf9ae8884c88aeb0fd986f6a5bc",
+                "reference": "b124d566df11adf9ae8884c88aeb0fd986f6a5bc",
                 "shasum": ""
             },
             "require": {
@@ -1939,7 +1939,7 @@
                 "bluzelle",
                 "blzphp"
             ],
-            "time": "2020-06-15T19:05:47+00:00"
+            "time": "2020-06-15T23:54:24+00:00"
         },
         {
             "name": "nikic/fast-route",
